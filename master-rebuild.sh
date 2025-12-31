@@ -132,6 +132,12 @@ install_dependencies() {
     print_step "Installing other dependencies..."
     apt install -y python3 python3-pip python3-venv jq net-tools ufw fail2ban cron
     
+    print_step "Setting up Python virtual environment..."
+    mkdir -p ~/.local/bin/py/master_rebuild
+    cd ~/.local/bin/py/master_rebuild
+    python3 -m venv .venv
+    source .venv/bin/activate
+
     print_step "Installing Python packages..."
     pip3 install cryptography requests
     
